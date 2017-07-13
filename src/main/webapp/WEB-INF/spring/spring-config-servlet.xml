@@ -12,17 +12,27 @@
         http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
     <mvc:annotation-driven/>
-    <mvc:resources mapping="/resources/**" location="/resorces"/>
-    <context:component-scan base-package="com.jezh.hillel"/>
+    <!--расположение статических ресурсов в classpath определяет тег location, а mapping определяет url, по которому
+    могут быть доступны статические ресурсы-->
+    <mvc:resources mapping="/resources/**" location="/static/"/>
     <!--чтобы ПОДКЛЮЧИТЬ созданную jsp (index.jsp по умолчанию на запрос "/hmvc")-->
     <mvc:view-controller path="/" view-name="user_check_page"/>
 
+    <context:annotation-config/>
+    <context:component-scan base-package="com.jezh.hillel"/>
+    <!--<bean class="com.acme.AppConfig"/>-->
+
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">
-            <value>/WEB-INF/pages</value>
+            <value>/WEB-INF/pages/</value>
         </property>
         <property name="suffix">
             <value>.jsp</value>
         </property>
     </bean>
+
+    <!--<bean id="admin" class="com.jezh.hillel.model.User">-->
+        <!--<property name="name" value="admin"/>-->
+        <!--<property name="password" value="admin"/>-->
+    <!--</bean>-->
 </beans>

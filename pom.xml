@@ -15,6 +15,39 @@
   </properties>
 
   <dependencies>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-core</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
+      <!--<dependency>-->
+          <!--<groupId>org.springframework</groupId>-->
+          <!--<artifactId>spring-beans</artifactId>-->
+          <!--<version>${spring.version}</version>-->
+      <!--</dependency>-->
+
+      <!--??? глючило без этой библиотеки, но сейчас работает ???-->
+      <!--<dependency>-->
+          <!--<groupId>org.springframework</groupId>-->
+          <!--<artifactId>spring-context</artifactId>-->
+          <!--<version>${spring.version}</version>-->
+      <!--</dependency>-->
+
+      <!--<dependency>-->
+          <!--<groupId>org.springframework</groupId>-->
+          <!--<artifactId>spring-context-support</artifactId>-->
+          <!--<version>${spring.version}</version>-->
+      <!--</dependency>-->
+      <!--<dependency>-->
+          <!--<groupId>org.springframework</groupId>-->
+          <!--<artifactId>spring-tx</artifactId>-->
+          <!--<version>${spring.version}</version>-->
+      <!--</dependency>-->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-jdbc</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
@@ -36,6 +69,7 @@
           <artifactId>hibernate-entitymanager</artifactId>
           <version>4.3.5.Final</version>
       </dependency>
+      <!--необходимо для отображения json в браузере-->
       <dependency>
           <groupId>com.fasterxml.jackson.core</groupId>
           <artifactId>jackson-databind</artifactId>
@@ -47,6 +81,14 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+<!--&lt;!&ndash;ЧТОБЫ ИСПОЛЬЗОВАТЬ tomcat - подключаем библиотеку jstl отдельно:&ndash;&gt;-->
+      <!--&lt;!&ndash; https://mvnrepository.com/artifact/jstl/jstl &ndash;&gt;-->
+      <!--<dependency>-->
+          <!--<groupId>jstl</groupId>-->
+          <!--<artifactId>jstl</artifactId>-->
+          <!--<version>${jstl.version}</version>-->
+      <!--</dependency>-->
+
   </dependencies>
   <build>
     <finalName>hillel-myattempt</finalName>
@@ -66,7 +108,7 @@
             <!--<version>2.2</version>-->
             <!--<configuration>-->
                 <!--<port>9999</port>-->
-                <!--<staticContextPath>/jezh</staticContextPath>-->
+                <!--&lt;!&ndash;<staticContextPath>/jezh</staticContextPath>&ndash;&gt;-->
             <!--</configuration>-->
         <!--</plugin>-->
         <plugin>
