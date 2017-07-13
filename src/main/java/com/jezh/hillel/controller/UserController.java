@@ -1,7 +1,6 @@
 package com.jezh.hillel.controller;
 
-import com.jezh.hillel.dao.UserDao;
-import com.jezh.hillel.model.User;
+import com.jezh.hillel.model.UserForTest;
 import com.jezh.hillel.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,20 +24,20 @@ public class UserController {
     @RequestMapping(value = "/validate", method = RequestMethod.GET)
     public ModelAndView validateUser() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("userFromServer", new User());
+        modelAndView.addObject("userFromServer", new UserForTest());
         modelAndView.setViewName("user_check_page");
         return modelAndView;
     }
 
     @RequestMapping(value = "/check", method = RequestMethod.POST)
-    public /*@ResponseBody*/ String checkUser(@ModelAttribute("userFromServer") User user) {
-        if ("admin".equals(user.getName()) && "admin".equals(user.getPassword()))
+    public /*@ResponseBody*/ String checkUser(@ModelAttribute("userFromServer") UserForTest userForTest) {
+        if ("admin".equals(userForTest.getName()) && "admin".equals(userForTest.getPassword()))
             return "redirect:/resources/html/valid.html";
         return "redirect:/resources/html/invalid.html";
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public @ResponseBody List<User> getAllUsers() {
+    public @ResponseBody List<UserForTest> getAllUsers() {
         return userService.getAllUsers();
     }
 

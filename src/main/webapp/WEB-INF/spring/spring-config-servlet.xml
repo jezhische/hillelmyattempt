@@ -31,7 +31,7 @@
         </property>
     </bean>
 
-    <!--<bean id="admin" class="com.jezh.hillel.model.User">-->
+    <!--<bean id="admin" clacom.jezh.hillel.model.UserForTestForTestUser">-->
         <!--<property name="name" value="admin"/>-->
         <!--<property name="password" value="admin"/>-->
     <!--</bean>-->

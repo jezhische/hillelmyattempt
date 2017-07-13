@@ -1,15 +1,26 @@
-package com.jezh.hillel.model;
+package com.jezh.hillel.entity;
 
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import javax.persistence.*;
 
 /**
  * Created by Ежище on 12.07.2017.
  */
+@Table(name = "USER")
+@Entity
 @Component
 public class User {
-    private String name, password;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "USER_ID", nullable = false, unique = true)
+    private Integer id;
+
+    @Column(name = "NAME")
+    private String name;
+
+    @Column(name = "PASSWORD")
+    private String password;
 
     public User() {
     }
@@ -17,6 +28,10 @@ public class User {
     public User(String name, String password) {
         this.name = name;
         this.password = password;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getName() {
@@ -37,7 +52,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "UserForTest{" +
                 "name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 '}';
@@ -50,13 +65,15 @@ public class User {
 
         User user = (User) o;
 
+        if (id != null ? !id.equals(user.id) : user.id != null) return false;
         if (name != null ? !name.equals(user.name) : user.name != null) return false;
         return password != null ? password.equals(user.password) : user.password == null;
     }
 
     @Override
     public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         return result;
     }

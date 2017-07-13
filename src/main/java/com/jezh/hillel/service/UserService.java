@@ -1,10 +1,8 @@
 package com.jezh.hillel.service;
 
 import com.jezh.hillel.dao.UserDao;
-import com.jezh.hillel.model.User;
+import com.jezh.hillel.model.UserForTest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +15,7 @@ public class UserService {
     @Autowired
     private UserDao userDao/* = context.getBean("userDao", UserDao.class)*/;
 
-    public List<User> getAllUsers() {
+    public List<UserForTest> getAllUsers() {
         return userDao.getAllUsers();
     }
 }
