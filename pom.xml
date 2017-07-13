@@ -11,6 +11,7 @@
     <properties>
         <jdk.version>1.8</jdk.version>
         <spring.version>4.1.9.RELEASE</spring.version>
+        <javax.servlet>3.0.1</javax.servlet>
         <jsp.version>2.3.1</jsp.version>
         <jstl.version>1.2</jstl.version>
         <hibernate.version>4.3.6.Final</hibernate.version>
@@ -19,6 +20,12 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.servlet}</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>javax.servlet.jsp-api</artifactId>
