@@ -7,9 +7,9 @@ import javax.persistence.*;
 /**
  * Created by Ежище on 12.07.2017.
  */
-@Table(name = "USER")
 @Entity
-@Component
+@Table(name = "USER")
+//@Component
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

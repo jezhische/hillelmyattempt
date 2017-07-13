@@ -45,6 +45,7 @@ public class UserController {
     public String redirect() {
         return "redirect:/resources/html/final.htm";
     }
+
     @RequestMapping(value = "/hw", method = RequestMethod.GET)
     public String helloWorld() {
         return "index";
