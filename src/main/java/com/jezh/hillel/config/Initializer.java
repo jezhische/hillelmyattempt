@@ -15,51 +15,44 @@ import javax.servlet.ServletRegistration;
 // http://devcolibri.com/3669
 // избавляемся от web.xml:
 //    <?xml version="1.0" encoding="UTF-8"?>
-//            <web-app xmlns="http://java.sun.com/xml/ns/javaee"
-//            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-//            xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-//            http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-//            version="2.5">
-//
-//            <display-name>Archetype Created Web Application</display-name>
-//
-//            <context-param>
-//            <param-name>contextConfigLocation</param-name>
-//            <param-value>/WEB-INF/spring/spring-config-servlet.xml</param-value>
-//            </context-param>
-//            <listener>
-//            <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+//<web-app............................>
+//<context-param>
+//    <param-name>contextConfigLocation</param-name>
+//    <param-value>/WEB-INF/spring/spring-config-servlet.xml</param-value>
+//</context-param>
+//<listener>
+//    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 //</listener>
 //
 //<servlet>
-//<servlet-name>spring-config</servlet-name>
-//<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-//<init-param>
-//<param-name>contextConfigLocation</param-name>
-//<param-value></param-value>
-//</init-param>
-//<load-on-startup>1</load-on-startup>
+//    <servlet-name>spring-config</servlet-name>
+//    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+//    <init-param>
+//        <param-name>contextConfigLocation</param-name>
+//        <param-value></param-value>
+//    </init-param>
+//    <load-on-startup>1</load-on-startup>
 //</servlet>
 //<servlet-mapping>
-//<servlet-name>spring-config</servlet-name>
-//<url-pattern>/</url-pattern>
+//    <servlet-name>spring-config</servlet-name>
+//    <url-pattern>/</url-pattern>
 //</servlet-mapping>
 //</web-app>
-public class Initializer /*implements WebApplicationInitializer*/ {
+public class Initializer implements WebApplicationInitializer {
     // Указываем имя нашему Servlet Dispatcher для мапинга
     private static final String DISPATCHER_SERVLET_NAME = "dispatcher";
 
 //    @Override
-    public void onStartup(ServletContext servletContext) throws ServletException {
+    public void onStartup(ServletContext container) throws ServletException {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
 
         // Регистрируем в контексте конфигурационный класс, который мы создадим ниже
         ctx.register(WebAppConfig.class);
-        servletContext.addListener(new ContextLoaderListener(ctx));
+        container.addListener(new ContextLoaderListener(ctx));
 
-        ctx.setServletContext(servletContext);
+        ctx.setServletContext(container);
 
-        ServletRegistration.Dynamic servlet = servletContext.addServlet(DISPATCHER_SERVLET_NAME,
+        ServletRegistration.Dynamic servlet = container.addServlet(DISPATCHER_SERVLET_NAME,
                 new DispatcherServlet(ctx));
         servlet.addMapping("/");
         servlet.setLoadOnStartup(1);
