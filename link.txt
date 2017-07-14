@@ -1,3 +1,6 @@
 https://www.youtube.com/watch?v=Z9dvZyEofAg
 http://www.mkyong.com/spring3/spring-3-mvc-hello-world-example/
 https://examples.javacodegeeks.com/enterprise-java/spring/mvc/spring-mvc-hibernate-tutorial/#section_3
+http://devcolibri.com/3669
+
+https://stackoverflow.com/questions/22315672/how-to-configure-spring-mvc-with-pure-java-based-configuration
