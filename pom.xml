@@ -184,10 +184,10 @@
             <!--<groupId>org.apache.tomcat.maven</groupId>-->
             <!--<artifactId>tomcat7-maven-plugin</artifactId>-->
             <!--<version>2.2</version>-->
-            <configuration_does_not_worktion>-->
+            <!--configuration_does_not_work>-->
             <!--<port>9999</port>-->
             <!--&lt;!&ndash;<staticContextPath>/jezh</staticContextPath>&ndash;&gt;-->
-            <!configuration_does_not_worktion>-->
+            <!--configuration_does_not_work>-->
             <!--</plugin>-->
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>

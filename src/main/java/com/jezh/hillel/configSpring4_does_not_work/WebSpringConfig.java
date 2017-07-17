@@ -37,6 +37,7 @@ public class WebSpringConfig extends WebMvcConfigurerAdapter {
     }
 
     @Override
+    // Configure a handler to delegate unhandled requests by forwarding to the Servlet container's "default" servlet. 
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer){
         configurer.enable();
     }
